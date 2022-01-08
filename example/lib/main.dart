@@ -17,11 +17,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+  String? _deviceImei = 'Unknown';
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
+    getImei();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -46,6 +48,20 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  Future<void> getImei() async {
+    String? imei;
+    try {
+      imei = await DeviceImei.getImei();
+    } catch (e) {
+      print(e);
+    }
+
+    if (!mounted) return;
+    setState(() {
+      _deviceImei = imei;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,7 +70,13 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Running on: $_platformVersion\n'),
+              Text('IMEI: $_deviceImei\n'),
+            ],
+          ),
         ),
       ),
     );

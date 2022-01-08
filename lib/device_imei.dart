@@ -14,4 +14,14 @@ class DeviceImei {
     final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+
+  static Future<String?> getImei() async {
+    late String imei;
+    imei = await _channel.invokeMethod('getImei');
+    if (imei == "") {
+      await Future.delayed(Duration(seconds: 1));
+      imei = await _channel.invokeMethod('getImei');
+    }
+    return await _channel.invokeMethod('getImei');
+  }
 }

@@ -1,18 +1,33 @@
-# device_imei
+# Device Imei
 
-A new flutter plugin project.
+[ ![Build version](https://img.shields.io/badge/pub-v0.0.1-green)](https://pub.dev/packages/imei_plugin)
+
+Flutter plugins to get real IMEI for Mobile Device
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Get IMEI (International Mobile Device Identity) for Android devices less than android 10 with runtime permission for android greater than or equal to 10 returns a UUID and get unique identification on ios An alphanumeric string that uniquely identifies a device for the application provider.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Use**
+```dart
+import 'package:device_imei/device_imei.dart';
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+String imei = await DeviceImei.getImei();
+```
+
+### Platform Support
+
+OS |
+-- |
+Android |
+IOS |
+
+
+License
+----
+
+MIT
+
+### Author
+
+This plugin is developed, **by Moh. Abdul Haq Aulia**
