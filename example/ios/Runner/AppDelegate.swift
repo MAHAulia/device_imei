@@ -16,13 +16,7 @@ import Flutter
               result(FlutterMethodNotImplemented)
               return
             }
-            self?.getImei(result: result)
-
-          guard call.method == "getPlatformVersion" else {
-              result(FlutterMethodNotImplemented)
-              return
-            }
-            self?.getImei(result: "0.0.1")
+            self.getImei(result: result)
             
       })
     GeneratedPluginRegistrant.register(with: self)
@@ -31,5 +25,9 @@ import Flutter
     
     private func getImei(result: FlutterResult) {
       result(UIDevice.current.identifierForVendor!.uuidString)
+    }
+
+    private func getPlatformVersion(result: FlutterResult) {
+      result("0.0.1")
     }
 }

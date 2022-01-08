@@ -26,8 +26,6 @@ class MainActivity: FlutterActivity() {
             if (call.method == "getImei") {
                 val imei = getImei();
                 result.success(imei)
-            } else if (call.method == "getPlatformVersion") {
-                result.success("0.0.1")
             }
         }
     }
