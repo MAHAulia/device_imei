@@ -1,6 +1,6 @@
 # Device Imei
 
-[ ![Build version](https://img.shields.io/badge/pub-v0.0.1-green)](https://pub.dev/packages/imei_plugin)
+[ ![Build version](https://img.shields.io/badge/pub-v0.0.2-green)](https://pub.dev/packages/device_imei)
 
 Flutter plugins to get real IMEI for Mobile Device
 
