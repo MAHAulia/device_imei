@@ -1,8 +1,9 @@
+import 'dart:developer';
+
+import 'package:device_imei/device_imei.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
-import 'package:device_imei/device_imei.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,9 +28,9 @@ class _MyAppState extends State<MyApp> {
   Future<void> getImei() async {
     String? imei;
     try {
-      imei = await DeviceImei.getImei();
+      imei = await DeviceImei.getImei;
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
 
     if (!mounted) return;
