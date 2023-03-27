@@ -5,9 +5,9 @@
 Pod::Spec.new do |s|
   s.name             = 'device_imei'
   s.version          = '0.0.1'
-  s.summary          = 'Flutter plugins to get real IMEI for Mobile Device'
+  s.summary          = 'A new Flutter project.'
   s.description      = <<-DESC
-Flutter plugins to get real IMEI for Mobile Device
+A new Flutter project.
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }

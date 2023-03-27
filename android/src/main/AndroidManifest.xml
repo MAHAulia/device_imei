@@ -1,4 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.mahatech.device_imei">
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  package="com.vai.device_imei">
 </manifest>

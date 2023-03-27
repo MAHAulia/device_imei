@@ -1,7 +1,6 @@
-package com.mahatech.device_imei
+package com.vai.device_imei
 
 import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -25,9 +24,6 @@ class DeviceImeiPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else if(call.method == "getImei") {
-      val imei = DeviceUtility().getImei();
-      result.success(imei)
     } else {
       result.notImplemented()
     }
@@ -36,5 +32,4 @@ class DeviceImeiPlugin: FlutterPlugin, MethodCallHandler {
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
-  
 }

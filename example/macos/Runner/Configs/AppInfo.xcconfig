@@ -8,7 +8,7 @@
 PRODUCT_NAME = device_imei_example
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.mahatech.deviceImeiExample
+PRODUCT_BUNDLE_IDENTIFIER = com.vai.deviceImeiExample
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.mahatech. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.vai. All rights reserved.

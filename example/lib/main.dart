@@ -1,41 +1,49 @@
-import 'dart:developer';
-
-import 'package:device_imei/device_imei.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/services.dart';
+import 'package:device_imei/device_imei.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  String? _deviceImei = 'Unknown';
+  String _platformVersion = 'Unknown';
+  final _deviceImeiPlugin = DeviceImei();
 
   @override
   void initState() {
     super.initState();
-    getImei();
+    initPlatformState();
   }
 
-  Future<void> getImei() async {
-    String? imei;
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    String platformVersion;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    // We also handle the message potentially returning null.
     try {
-      imei = await DeviceImei.getImei;
-    } catch (e) {
-      log(e.toString());
+      platformVersion =
+          await _deviceImeiPlugin.getPlatformVersion() ?? 'Unknown platform version';
+    } on PlatformException {
+      platformVersion = 'Failed to get platform version.';
     }
 
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
     if (!mounted) return;
+
     setState(() {
-      _deviceImei = imei;
+      _platformVersion = platformVersion;
     });
   }
 
@@ -47,12 +55,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('IMEI: $_deviceImei\n'),
-            ],
-          ),
+          child: Text('Running on: $_platformVersion\n'),
         ),
       ),
     );
