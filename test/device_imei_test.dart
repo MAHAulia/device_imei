@@ -11,16 +11,15 @@ class MockDeviceImeiPlatform
   Future<String?> getPlatformVersion() => Future.value('42');
 
   @override
-  Future<String?> getDeviceImei() {
-    // TODO: implement getDeviceImei
-    throw UnimplementedError();
-  }
+  Future<String?> getDeviceImei() => Future.value("353749090441001");
 
   @override
-  Future<DeviceInfo?> getDeviceInfo() {
-    // TODO: implement getDeviceInfo
-    throw UnimplementedError();
-  }
+  Future<DeviceInfo?> getDeviceInfo() => Future.value(DeviceInfo(
+      id: "PPR1.180610.100",
+      sdkInt: 28,
+      model: "ASUS_X017DZ",
+      manufacture: "asus",
+      device: "ASUS_X017D_1"));
 }
 
 void main() {
@@ -30,11 +29,20 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelDeviceImei>());
   });
 
-  test('getPlatformVersion', () async {
+  test('Test Funtional Method', () async {
     DeviceImei deviceImeiPlugin = DeviceImei();
     MockDeviceImeiPlatform fakePlatform = MockDeviceImeiPlatform();
     DeviceImeiPlatform.instance = fakePlatform;
 
     expect(await deviceImeiPlugin.getPlatformVersion(), '42');
+    expect(await deviceImeiPlugin.getDeviceImei(), '353749090441001');
+    expect(
+        await deviceImeiPlugin.getDeviceInfo(),
+        DeviceInfo(
+            id: "PPR1.180610.100",
+            sdkInt: 28,
+            model: "ASUS_X017DZ",
+            manufacture: "asus",
+            device: "ASUS_X017D_1"));
   });
 }

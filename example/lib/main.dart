@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> {
 
     DeviceInfo? dInfo = await _deviceImeiPlugin.getDeviceInfo();
 
+    print(dInfo.toString());
     if (dInfo != null) {
       setState(() {
         deviceInfo = dInfo;
@@ -65,6 +66,7 @@ class _MyAppState extends State<MyApp> {
 
     if (permission.isGranted) {
       String? imei = await _deviceImeiPlugin.getDeviceImei();
+      print(imei);
       if (imei != null) {
         setState(() {
           getPermission = true;
