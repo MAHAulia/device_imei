@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vai.device_imei_example">
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
    <application
         android:label="device_imei_example"
         android:name="${applicationName}"

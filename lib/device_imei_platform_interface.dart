@@ -1,5 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+import 'device_imei.dart';
 import 'device_imei_method_channel.dart';
 
 abstract class DeviceImeiPlatform extends PlatformInterface {
@@ -25,5 +26,13 @@ abstract class DeviceImeiPlatform extends PlatformInterface {
 
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String?> getDeviceImei() {
+    throw UnimplementedError('getDeviceImei() has not been implemented.');
+  }
+
+  Future<DeviceInfo?> getDeviceInfo() {
+    throw UnimplementedError('getDeviceInfo() has not been implemented.');
   }
 }

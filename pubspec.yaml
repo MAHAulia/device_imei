@@ -1,7 +1,7 @@
 name: device_imei
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: Flutter plugins to get real IMEI for Mobile Device
+version: 0.0.3
+homepage: https://github.com/AuliaVailo/device_imei
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
@@ -37,10 +37,10 @@ flutter:
       android:
         package: com.vai.device_imei
         pluginClass: DeviceImeiPlugin
-      ios:
-        pluginClass: DeviceImeiPlugin
-      macos:
-        pluginClass: DeviceImeiPlugin
+      # ios:
+      #   pluginClass: DeviceImeiPlugin
+      # macos:
+      #   pluginClass: DeviceImeiPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

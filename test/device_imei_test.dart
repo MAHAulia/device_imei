@@ -7,9 +7,20 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockDeviceImeiPlatform
     with MockPlatformInterfaceMixin
     implements DeviceImeiPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future<String?> getDeviceImei() {
+    // TODO: implement getDeviceImei
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<DeviceInfo?> getDeviceInfo() {
+    // TODO: implement getDeviceInfo
+    throw UnimplementedError();
+  }
 }
 
 void main() {
