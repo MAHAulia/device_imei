@@ -15,3 +15,7 @@
 ## [0.0.4] - 2023-04-01
 
 * Add support for iOS
+
+## [0.0.4+1] - 2023-04-01
+
+* Update Readme

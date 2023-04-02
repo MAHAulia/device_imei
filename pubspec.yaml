@@ -1,6 +1,6 @@
 name: device_imei
 description: Flutter plugins to get real IMEI for Mobile Device
-version: 0.0.4
+version: 0.0.4+1
 homepage: https://github.com/AuliaVailo/device_imei
 
 environment:
