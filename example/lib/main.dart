@@ -63,25 +63,35 @@ class _MyAppState extends State<MyApp> {
       });
     }
 
-    if (permission.isGranted) {
+    if (Platform.isAndroid) {
+      if (permission.isGranted) {
+        String? imei = await _deviceImeiPlugin.getDeviceImei();
+        if (imei != null) {
+          setState(() {
+            getPermission = true;
+            deviceImei = imei;
+          });
+        }
+      } else {
+        PermissionStatus status = await Permission.phone.request();
+        if (status == PermissionStatus.granted) {
+          setState(() {
+            getPermission = false;
+          });
+          _getImei();
+        } else {
+          setState(() {
+            getPermission = false;
+            message = "Permission not granted, please allow permission";
+          });
+        }
+      }
+    } else {
       String? imei = await _deviceImeiPlugin.getDeviceImei();
       if (imei != null) {
         setState(() {
           getPermission = true;
           deviceImei = imei;
-        });
-      }
-    } else {
-      PermissionStatus status = await Permission.phone.request();
-      if (status == PermissionStatus.granted) {
-        setState(() {
-          getPermission = false;
-        });
-        _getImei();
-      } else {
-        setState(() {
-          getPermission = false;
-          message = "Permission not granted, please allow permission";
         });
       }
     }
@@ -123,7 +133,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text('Running on: $_platformVersion\n'),
               const Divider(),
-              Text("ID : ${deviceInfo?.id}"),
+              Text("ID : ${deviceInfo?.deviceId}"),
               Text("SDK INT : ${deviceInfo?.sdkInt}"),
               Text("MODEL : ${deviceInfo?.model}"),
               Text("MANUFACTURE : ${deviceInfo?.manufacture}"),

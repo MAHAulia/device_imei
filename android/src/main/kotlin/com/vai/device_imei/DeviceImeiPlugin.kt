@@ -57,7 +57,7 @@ class DeviceImeiPlugin: FlutterPlugin, MethodCallHandler {
     deviceInfo.put("model", Build.MODEL)
     deviceInfo.put("manufacture", Build.MANUFACTURER)
     deviceInfo.put("device", Build.DEVICE)
-    deviceInfo.put("id", Build.ID)
+    deviceInfo.put("device_id", getImei())
     return deviceInfo
   }
 

@@ -17,13 +17,13 @@ class DeviceImei {
 }
 
 class DeviceInfo {
-  String? id;
-  int? sdkInt;
+  String? deviceId;
+  String? sdkInt;
   String? model;
   String? manufacture;
   String? device;
   DeviceInfo({
-    this.id,
+    this.deviceId,
     this.sdkInt,
     this.model,
     this.manufacture,
@@ -31,14 +31,14 @@ class DeviceInfo {
   });
 
   DeviceInfo copyWith({
-    String? id,
-    int? sdkInt,
+    String? deviceId,
+    String? sdkInt,
     String? model,
     String? manufacture,
     String? device,
   }) {
     return DeviceInfo(
-      id: id ?? this.id,
+      deviceId: deviceId ?? this.deviceId,
       sdkInt: sdkInt ?? this.sdkInt,
       model: model ?? this.model,
       manufacture: manufacture ?? this.manufacture,
@@ -48,7 +48,7 @@ class DeviceInfo {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'device_id': deviceId,
       'sdkInt': sdkInt,
       'model': model,
       'manufacture': manufacture,
@@ -58,8 +58,8 @@ class DeviceInfo {
 
   factory DeviceInfo.fromMap(Map<String, dynamic> map) {
     return DeviceInfo(
-      id: map['id'],
-      sdkInt: map['sdk_int']?.toInt(),
+      deviceId: map['device_id'],
+      sdkInt: map['sdk_int']?.toString(),
       model: map['model'],
       manufacture: map['manufacture'],
       device: map['device'],
@@ -68,12 +68,13 @@ class DeviceInfo {
 
   String toJson() => json.encode(toMap());
 
-  factory DeviceInfo.fromJson(String source) =>
-      DeviceInfo.fromMap(json.decode(source));
+  factory DeviceInfo.fromJson(String source) {
+    return DeviceInfo.fromMap(json.decode(source));
+  }
 
   @override
   String toString() {
-    return 'DeviceInfo(id: $id, sdkInt: $sdkInt, model: $model, manufacture: $manufacture, device: $device)';
+    return 'DeviceInfo(device_id: $deviceId, sdkInt: $sdkInt, model: $model, manufacture: $manufacture, device: $device)';
   }
 
   @override
@@ -81,7 +82,7 @@ class DeviceInfo {
     if (identical(this, other)) return true;
 
     return other is DeviceInfo &&
-        other.id == id &&
+        other.deviceId == deviceId &&
         other.sdkInt == sdkInt &&
         other.model == model &&
         other.manufacture == manufacture &&
@@ -90,7 +91,7 @@ class DeviceInfo {
 
   @override
   int get hashCode {
-    return id.hashCode ^
+    return deviceId.hashCode ^
         sdkInt.hashCode ^
         model.hashCode ^
         manufacture.hashCode ^

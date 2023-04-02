@@ -17,8 +17,8 @@ void main() {
         return '353749090441001';
       } else if (methodCall.method == "getDeviceInfo") {
         return DeviceInfo(
-            id: "PPR1.180610.100",
-            sdkInt: 28,
+            deviceId: "PPR1.180610.100",
+            sdkInt: "28",
             model: "ASUS_X017DZ",
             manufacture: "asus",
             device: "ASUS_X017D_1");
@@ -42,8 +42,8 @@ void main() {
     expect(
       await platform.getDeviceInfo(),
       DeviceInfo(
-          id: "PPR1.180610.100",
-          sdkInt: 28,
+          deviceId: "PPR1.180610.100",
+          sdkInt: "28",
           model: "ASUS_X017DZ",
           manufacture: "asus",
           device: "ASUS_X017D_1"),

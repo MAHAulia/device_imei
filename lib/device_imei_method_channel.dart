@@ -25,7 +25,6 @@ class MethodChannelDeviceImei extends DeviceImeiPlatform {
   @override
   Future<DeviceInfo?> getDeviceInfo() async {
     var dataDevice = await methodChannel.invokeMethod<String>('getDeviceInfo');
-    print(dataDevice);
     return DeviceInfo.fromJson(dataDevice!);
   }
 }
