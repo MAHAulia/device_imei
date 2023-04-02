@@ -11,3 +11,7 @@
 ## [0.0.3] - 2023-03-28
 
 * Fix Get Device on Android
+
+## [0.0.4] - 2023-04-01
+
+* Add support for iOS
