@@ -4,14 +4,14 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'device_imei'
-  s.version          = '0.0.1'
-  s.summary          = 'A new Flutter project.'
+  s.version          = '0.0.3'
+  s.summary          = 'flutter plugins to get real IMEI for Mobile Device.'
   s.description      = <<-DESC
-A new Flutter project.
+  flutter plugins to get real IMEI for Mobile Device.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/AuliaVailo/device_imei'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Moh. Abdul Haq Aulia' => 'abdul.haq.aulia@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'

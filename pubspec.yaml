@@ -37,8 +37,8 @@ flutter:
       android:
         package: com.vai.device_imei
         pluginClass: DeviceImeiPlugin
-      # ios:
-      #   pluginClass: DeviceImeiPlugin
+      ios:
+        pluginClass: DeviceImeiPlugin
       # macos:
       #   pluginClass: DeviceImeiPlugin
 
